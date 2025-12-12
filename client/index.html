@@ -4,32 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' wss://generativelanguage.googleapis.com https://api.deepgram.com wss://api.deepgram.com; style-src 'self' 'unsafe-inline'">
-    <title>Gemini Live</title>
+    <title>Sidekick</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <button id="disconnectBtn" class="disconnect-btn">Disconnect</button>
-        <button id="connectBtn" class="connect-btn" style="display: none;">Connect</button>
-        <button id="settingsBtn" class="settings-btn">⚙️</button>
-        <button id="cameraBtn" class="camera-btn">
-            <span class="camera-icon">📷</span>
-        </button>
-        <button id="screenBtn" class="screen-btn">
-            <span class="screen-icon">🖥️</span>
-        </button>
-        <button id="micBtn" class="mic-btn">
-            <span class="mic-icon">🎤</span>
-        </button>
-        <div id="chatHistory" class="chat-history"></div>
-        <canvas id="visualizer" class="visualizer"></canvas>
-        <div id="cameraPreview" class="camera-preview"></div>
-        <div id="screenPreview" class="screen-preview"></div>
-        <div class="text-input-container">
-            <input type="text" id="messageInput" placeholder="Type your message..." class="text-input">
-            <button id="sendBtn" class="send-btn">➤</button>
-        </div>
+    <div class="app-shell">
+        <header class="app-header">
+            <button id="backToCourses" class="icon-button" aria-label="Back to courses">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="header-spacer" aria-hidden="true"></div>
+            <div class="header-controls">
+                <button id="screenBtn" class="icon-button" aria-label="Toggle screen share">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <button id="micBtn" class="icon-button" aria-label="Toggle microphone">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <button id="settingsBtn" class="icon-button" aria-label="Open settings">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5Zm7.43-3.5a5.5 5.5 0 0 0-.11-1l2.1-1.63a1 1 0 0 0 .24-1.23l-2-3.46a1 1 0 0 0-1.18-.45l-2.48 1a7 7 0 0 0-1.74-1l-.38-2.65a1 1 0 0 0-1-.85h-4a1 1 0 0 0-1 .85l-.38 2.65a7 7 0 0 0-1.74 1l-2.48-1a1 1 0 0 0-1.18.45l-2 3.46a1 1 0 0 0 .24 1.23l2.1 1.63a5.5 5.5 0 0 0 0 2l-2.1 1.63a1 1 0 0 0-.24 1.23l2 3.46a1 1 0 0 0 1.18.45l2.48-1a7 7 0 0 0 1.74 1l.38 2.65a1 1 0 0 0 1 .85h4a1 1 0 0 0 1-.85l.38-2.65a7 7 0 0 0 1.74-1l2.48 1a1 1 0 0 0 1.18-.45l2-3.46a1 1 0 0 0-.24-1.23l-2.1-1.63a5.5 5.5 0 0 0 .11-1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="app-main" id="challengeContent">
+            <section class="challenge-header">
+                <p id="challengeCourse" class="challenge-course">Course title</p>
+                <h1 id="challengeTitle" class="challenge-title">Challenge title</h1>
+                <p id="challengeSubtitle" class="challenge-subtitle">Challenge subtitle</p>
+            </section>
+            <div id="challengeInstructions" class="challenge-instructions" hidden></div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-controls">
+                <button id="prevChallengeBtn" class="footer-button footer-button--icon" aria-label="Previous challenge">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button id="nextChallengeBtn" class="footer-button footer-button--primary">
+                    <span>Next challenge</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button id="stopGeminiBtn" class="footer-button footer-button--audiogram" aria-label="Stop Gemini" data-state="active">
+                    <span class="audiogram" data-state="active">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+                        <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
+                    </svg>
+                    <span class="status-indicator" aria-hidden="true" data-state="active"></span>
+                    <span class="sr-only">Stop Gemini</span>
+                </button>
+            </div>
+            <div id="courseProgressBar" class="course-progress-bar">
+                <div id="courseProgressFill" class="course-progress-fill" style="width: 0%"></div>
+            </div>
+        </footer>
     </div>
+
+    <div id="courseSelection" class="course-selection"></div>
+    <div id="screenPreview" class="screen-preview"></div>
+
     <script type="module" src="js/script.js"></script>
 </body>
 </html>

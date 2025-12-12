@@ -1,0 +1,87 @@
+{
+  "id": "gsheets-basics",
+  "title": "Google Sheets Basics",
+  "description": "Learn the fundamentals of Google Sheets - basic formulas, formatting, and organizing data",
+  "icon": "📊",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "Your First Spreadsheet",
+      "description": "Create a simple spreadsheet and learn basic data entry",
+      "instructions": "Ask the user to create a simple shopping list with three columns: Item Name, Quantity, and Price. They should enter at least 5 items. Guide them through entering data, formatting headers (bold text), and basic cell selection.",
+      "validation": "Check for: At least 5 rows of data, three columns (Item, Quantity, Price), bold headers, and properly aligned data (text left, numbers right).",
+      "hints": [
+        "Click on a cell to select it and start typing",
+        "Press Tab to move to the next cell or Enter to move down",
+        "Select the header row and click the Bold button to make it stand out",
+        "Numbers automatically align to the right"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Basic Math with SUM",
+      "description": "Learn to add numbers using the SUM formula",
+      "instructions": "Using their shopping list, challenge the user to calculate the total cost. They should create a 'Total' column that multiplies Quantity by Price for each item, then use SUM to add up all the totals. This introduces basic formulas like =B2*C2 and =SUM(D2:D6).",
+      "validation": "Verify: Total column with multiplication formulas (=Quantity*Price), a SUM formula at the bottom calculating the grand total, and correct results.",
+      "hints": [
+        "To multiply, type =B2*C2 (Quantity times Price)",
+        "Click and drag the formula down to copy it to other rows",
+        "Use =SUM(D2:D6) to add up all totals (adjust range as needed)",
+        "Formulas always start with an equals sign ="
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "AVERAGE and COUNT Functions",
+      "description": "Learn to calculate averages and count items",
+      "instructions": "Ask the user to add summary statistics below their shopping list: total number of items (using COUNT), and average price per item (using AVERAGE). They should label these calculations clearly.",
+      "validation": "Confirm: COUNT formula counting the number of items, AVERAGE formula calculating average price, proper labels for each calculation.",
+      "hints": [
+        "Use =COUNT(A2:A6) to count how many items you have",
+        "Use =AVERAGE(C2:C6) to find the average price",
+        "Add labels in the cell to the left like 'Number of Items:'",
+        "Make sure your range includes all your data"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Simple IF Statement",
+      "description": "Use IF statements to make decisions in your spreadsheet",
+      "instructions": "Challenge the user to add a 'Status' column that checks if the total cost for each item is over $20. If it is, display 'Expensive', otherwise display 'Affordable'. This introduces basic IF logic.",
+      "validation": "Check for: IF formula structure =IF(condition,'true_result','false_result'), correct comparison (checking if total > 20), and proper text output in quotes.",
+      "hints": [
+        "Use =IF(D2>20,'Expensive','Affordable')",
+        "The IF function checks a condition and returns different results",
+        "Text values in formulas must be in 'quotes'",
+        "Copy the formula down to check all items"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Creating a Simple Chart",
+      "description": "Visualize your data with a basic bar chart",
+      "instructions": "Guide the user to create a simple bar chart showing their items and their total costs. They should select the Item Name column and Total column, then insert a chart. Help them understand chart creation and basic customization.",
+      "validation": "Verify: A chart exists, it displays items on one axis and costs on the other, chart has a title, and data is correctly represented.",
+      "hints": [
+        "Select the Item Name and Total columns (hold Ctrl/Cmd to select multiple)",
+        "Go to Insert → Chart in the menu",
+        "Choose 'Column chart' or 'Bar chart' from the chart editor",
+        "Add a title like 'Shopping Costs by Item'"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Sorting and Filtering Data",
+      "description": "Learn to organize and filter your data",
+      "instructions": "Challenge the user to sort their shopping list by price (highest to lowest) and then add filters to be able to show only items above a certain price. This teaches data organization and filtering basics.",
+      "validation": "Confirm: Data is sorted correctly, filter buttons are visible in the header row, filters can be applied to show/hide data based on criteria.",
+      "hints": [
+        "Select all your data including headers",
+        "Click Data → Sort range in the menu",
+        "Choose to sort by the Price column, Z→A (highest to lowest)",
+        "Click Data → Create a filter to add filter buttons to headers"
+      ]
+    }
+  ]
+}
+

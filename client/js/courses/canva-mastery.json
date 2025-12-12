@@ -1,0 +1,208 @@
+{
+  "id": "canva-mastery",
+  "title": "Canva Design Mastery",
+  "description": "Master professional design skills from basics to advanced branding and marketing materials",
+  "icon": "🎨",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "Canva Interface Mastery",
+      "description": "Navigate Canva like a pro and understand all key tools",
+      "instructions": "Guide the user through the Canva interface, explaining the editor, templates, elements panel, text tools, and keyboard shortcuts for efficient workflow.",
+      "hints": [
+        "Open Canva.com and create a free account",
+        "Explore the homepage and template library",
+        "Create a blank design to see the editor interface",
+        "Learn the left sidebar: Templates, Elements, Text, Uploads",
+        "Master keyboard shortcuts: C for crop, T for text, G for group"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Typography Fundamentals",
+      "description": "Master font pairing, hierarchy, and professional text layouts",
+      "instructions": "Teach the user about typography principles: font pairing, hierarchy, spacing, and readability. Show how to use Canva's text tools to create professional-looking designs.",
+      "hints": [
+        "Understand font families: Serif, Sans-serif, Display, Script",
+        "Pair fonts using the 'Font Pairing' feature or complementary styles",
+        "Create visual hierarchy with size, weight, and color",
+        "Use letter spacing and line height for readability",
+        "Apply text effects like shadows and outlines sparingly"
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "Color Theory for Designers",
+      "description": "Learn color psychology and create stunning color palettes",
+      "instructions": "Guide the user through color theory basics, color psychology, and how to create harmonious color palettes. Show how to use Canva's color palette generator and apply colors consistently.",
+      "hints": [
+        "Understand the color wheel: complementary, analogous, triadic",
+        "Use Canva's color palette generator from photos",
+        "Learn color psychology (blue=trust, red=urgency, green=growth)",
+        "Create brand colors and save them to your brand kit",
+        "Maintain 60-30-10 rule: 60% dominant, 30% secondary, 10% accent"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Layout and Composition Principles",
+      "description": "Master design principles: balance, alignment, and white space",
+      "instructions": "Teach fundamental design principles including rule of thirds, visual hierarchy, balance, alignment, and effective use of white space.",
+      "hints": [
+        "Apply the rule of thirds for focal points",
+        "Use grids and guides for perfect alignment",
+        "Balance elements: symmetrical vs asymmetrical",
+        "Embrace white space - don't overcrowd designs",
+        "Create visual flow with directional elements"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Working with Images and Graphics",
+      "description": "Edit photos, remove backgrounds, and use graphics effectively",
+      "instructions": "Show the user how to use Canva's photo editing tools, background remover, filters, and how to combine photos with graphics for professional results.",
+      "hints": [
+        "Use Background Remover for transparent images",
+        "Apply filters and adjustments (brightness, contrast, saturation)",
+        "Crop and frame images effectively",
+        "Combine photos with shapes and overlays",
+        "Use Canva's AI image tools like Magic Eraser and Expand"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Brand Identity Design",
+      "description": "Create a complete brand identity with logo, colors, and style guide",
+      "instructions": "Guide the user through creating a cohesive brand identity including logo design, color palette, typography, and brand guidelines using Canva's Brand Kit.",
+      "hints": [
+        "Design a simple, memorable logo using shapes and text",
+        "Create a primary and secondary color palette (3-5 colors)",
+        "Choose 2-3 brand fonts for consistency",
+        "Set up Brand Kit to save all brand elements",
+        "Create brand templates for consistency across materials"
+      ]
+    },
+    {
+      "id": "challenge-7",
+      "title": "Social Media Content Creation",
+      "description": "Design engaging posts, stories, and covers for all platforms",
+      "instructions": "Teach the user to create platform-specific content with correct dimensions, design engaging visuals that stop scrolling, and batch-create content efficiently.",
+      "hints": [
+        "Use correct dimensions for each platform (Instagram, Facebook, LinkedIn)",
+        "Create eye-catching thumbnails with bold text and visuals",
+        "Design story templates with interactive elements",
+        "Use animation and video features for dynamic content",
+        "Batch-create content using 'Duplicate' and 'Resize' features"
+      ]
+    },
+    {
+      "id": "challenge-8",
+      "title": "Marketing Materials Mastery",
+      "description": "Design professional flyers, posters, brochures, and ads",
+      "instructions": "Show how to create effective marketing materials including flyers, posters, business cards, and digital ads with strong calls-to-action.",
+      "hints": [
+        "Create clear hierarchy: headline, subheading, body, CTA",
+        "Use high-quality images that relate to your message",
+        "Include strong, action-oriented CTAs (Call To Actions)",
+        "Design for both print (300 DPI) and digital (72 DPI)",
+        "Add bleed areas for print materials (3mm edge buffer)"
+      ]
+    },
+    {
+      "id": "challenge-9",
+      "title": "Advanced Animation and Video",
+      "description": "Create animated graphics, video content, and presentations",
+      "instructions": "Guide the user through Canva's animation features, video editing tools, and how to create engaging animated content for social media and presentations.",
+      "hints": [
+        "Apply animations to elements (fade, rise, pan)",
+        "Create animated presentations with page transitions",
+        "Edit video clips: trim, add music, apply filters",
+        "Design animated social media posts and ads",
+        "Export videos in different formats and resolutions"
+      ]
+    },
+    {
+      "id": "challenge-10",
+      "title": "Templates and Design Systems",
+      "description": "Build reusable templates and maintain design consistency",
+      "instructions": "Teach the user to create custom templates, use components, and build a design system for consistent, efficient design workflow.",
+      "hints": [
+        "Create master templates for recurring design needs",
+        "Use 'Save as template' to build a template library",
+        "Create style components for buttons, headers, etc.",
+        "Share templates with team members",
+        "Update templates to apply changes across all instances"
+      ]
+    },
+    {
+      "id": "challenge-11",
+      "title": "Canva AI Tools Mastery",
+      "description": "Leverage AI-powered features for faster, better designs",
+      "instructions": "Show the user how to use Canva's AI tools including Magic Write, Text to Image, Magic Design, and other AI features to enhance creativity and speed.",
+      "hints": [
+        "Use Magic Write for copy generation and editing",
+        "Generate images with Text to Image AI",
+        "Try Magic Design for instant template creation",
+        "Use Magic Eraser to remove unwanted elements",
+        "Experiment with AI-powered background generation"
+      ]
+    },
+    {
+      "id": "challenge-12",
+      "title": "Presentation Design Excellence",
+      "description": "Create stunning, professional presentations that captivate",
+      "instructions": "Guide the user to design compelling presentations with strong visual storytelling, data visualization, and professional polish.",
+      "hints": [
+        "Start with a strong opening slide that hooks attention",
+        "Use one idea per slide for clarity",
+        "Visualize data with charts, graphs, and infographics",
+        "Apply consistent template throughout presentation",
+        "Use presenter notes and practice with Presenter View"
+      ]
+    },
+    {
+      "id": "challenge-13",
+      "title": "Print Design Fundamentals",
+      "description": "Design for print: business cards, posters, and merchandise",
+      "instructions": "Teach print-specific design considerations including resolution, color modes (CMYK), bleed, and how to prepare files for professional printing.",
+      "hints": [
+        "Set designs to 300 DPI for print quality",
+        "Understand CMYK vs RGB color modes",
+        "Add 3mm bleed for designs with edge-to-edge printing",
+        "Use standard print sizes (A4, US Letter, etc.)",
+        "Download as PDF for best print results"
+      ]
+    },
+    {
+      "id": "challenge-14",
+      "title": "Collaboration and Workflow",
+      "description": "Master team collaboration, comments, and approval workflows",
+      "instructions": "Show the user how to collaborate with teams, use comments and feedback features, set up brand permissions, and manage design workflows efficiently.",
+      "hints": [
+        "Share designs with view, comment, or edit access",
+        "Use comments for feedback and revisions",
+        "Set up team folders for organization",
+        "Create approval workflows with stakeholders",
+        "Use version history to track changes"
+      ]
+    },
+    {
+      "id": "challenge-15",
+      "title": "Portfolio Project: Complete Brand Campaign",
+      "description": "Create a complete brand campaign across multiple formats",
+      "instructions": "Challenge the user to create a full brand campaign including logo, social media content, presentation, flyer, and business card - demonstrating all learned skills.",
+      "hints": [
+        "Choose a business or personal brand to design for",
+        "Create a complete brand identity (logo, colors, fonts)",
+        "Design 5 social media posts with consistent branding",
+        "Create a 5-slide pitch presentation",
+        "Design a flyer and business card",
+        "Ensure consistency across all materials"
+      ]
+    }
+  ]
+}
+
+
+
+

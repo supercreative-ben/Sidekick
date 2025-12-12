@@ -1,0 +1,58 @@
+[
+  {
+    "id": "gsheets-basics",
+    "title": "Google Sheets Fundamentals",
+    "description": "Master spreadsheet basics from creating your first sheet to using formulas",
+    "icon": "📊",
+    "difficulty": "Beginner",
+    "estimatedTime": "45 minutes"
+  },
+  {
+    "id": "framer-basics",
+    "title": "Framer Design Essentials",
+    "description": "Learn to create stunning interactive prototypes and websites",
+    "icon": "🎨",
+    "difficulty": "Beginner",
+    "estimatedTime": "60 minutes"
+  },
+  {
+    "id": "blender-basics",
+    "title": "Blender 3D Fundamentals",
+    "description": "Get started with 3D modeling, animation, and rendering",
+    "icon": "🎬",
+    "difficulty": "Beginner",
+    "estimatedTime": "90 minutes"
+  },
+  {
+    "id": "chatgpt-mastery",
+    "title": "ChatGPT Power User",
+    "description": "Learn effective prompting techniques and advanced ChatGPT features",
+    "icon": "💬",
+    "difficulty": "Beginner",
+    "estimatedTime": "40 minutes"
+  },
+  {
+    "id": "n8n-basics",
+    "title": "N8N Automation Fundamentals",
+    "description": "Master workflow automation with n8n from setup to building powerful workflows",
+    "icon": "⚡",
+    "difficulty": "Beginner",
+    "estimatedTime": "75 minutes"
+  },
+  {
+    "id": "canva-mastery",
+    "title": "Canva Design Mastery",
+    "description": "Master professional design skills from basics to advanced branding and marketing materials",
+    "icon": "🎨",
+    "difficulty": "Beginner to Advanced",
+    "estimatedTime": "120 minutes"
+  },
+  {
+    "id": "prompting-techniques",
+    "title": "AI Prompting Mastery",
+    "description": "Master the art of prompt engineering with proven techniques for any AI model",
+    "icon": "🎯",
+    "difficulty": "Beginner",
+    "estimatedTime": "90 minutes"
+  }
+]

@@ -72,18 +72,40 @@ export class GeminiWebsocketClient {
                 this.isConnecting = false;
 
                 // Configure
-                this.sendJSON({ setup: this.config });
-                console.debug("Setup message with the following configuration was sent:", this.config);
-                resolve();
+                try {
+                    this.sendJSON({ setup: this.config });
+                    console.debug("Setup message with the following configuration was sent:", this.config);
+                    resolve();
+                } catch (error) {
+                    console.error('Failed to send setup message:', error);
+                    reject(error);
+                }
             });
 
             // Handle connection errors
             ws.addEventListener('error', (error) => {
-                this.disconnect(ws);
-                const reason = error.reason || 'Unknown';
-                const message = `Could not connect to "${this.url}. Reason: ${reason}"`;
-                console.error(message, error);
+                console.error('WebSocket error:', error);
+                this.isConnecting = false;
                 reject(error);
+            });
+
+            // Handle connection close
+            ws.addEventListener('close', (event) => {
+                console.warn(`WebSocket closed. Code: ${event.code}, Reason: ${event.reason || 'No reason provided'}, Clean: ${event.wasClean}`);
+                
+                // Handle specific error codes
+                if (event.code === 1011) {
+                    console.error('❌ API QUOTA EXCEEDED - Please check your Gemini API plan and billing details');
+                    this.emit('quota_exceeded', event.reason);
+                } else if (event.code === 1008) {
+                    console.error('❌ API ERROR - Invalid API key or authentication failed');
+                    this.emit('auth_error', event.reason);
+                }
+                
+                this.ws = null;
+                this.isConnecting = false;
+                this.connectionPromise = null;
+                this.emit('disconnected', { code: event.code, reason: event.reason });
             });
 
             // Listen for incoming messages, expecting Blob data for binary streams
@@ -258,10 +280,14 @@ export class GeminiWebsocketClient {
 
     async sendJSON(json) {        
         try {
+            if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+                console.warn(`Cannot send message - WebSocket is not open (readyState: ${this.ws?.readyState})`);
+                return;
+            }
             this.ws.send(JSON.stringify(json));
             // console.debug(`JSON Object was sent to ${this.name}:`, json);
         } catch (error) {
-            throw new Error(`Failed to send ${json} to ${this.name}:` + error);
+            console.error(`Failed to send message to ${this.name}:`, error);
         }
     }
 }

@@ -1,11 +1,18 @@
 const { app, BrowserWindow, ipcMain, desktopCapturer } = require('electron')
 const path = require('path')
 
+// Set app name early
+app.setName('Sidekick')
+
 function createWindow () {
     // Create the browser window
     const mainWindow = new BrowserWindow({
         width: 1200,
         height: 800,
+        title: 'Sidekick',
+        icon: path.join(__dirname, '../assets/icon.png'),
+        titleBarStyle: 'hiddenInset', // Hide title bar but keep traffic light controls
+        show: false, // Don't show until ready
         webPreferences: {
             nodeIntegration: false, // is default value after Electron v5
             contextIsolation: true, // protect against prototype pollution
@@ -15,11 +22,24 @@ function createWindow () {
 
     // Load the index.html file from the client folder
     mainWindow.loadFile(path.join(__dirname, '../client/index.html'))
+    
+    // Show window when ready to prevent visual flash
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show()
+    })
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.whenReady().then(() => {
+    // Set app icon explicitly for macOS
+    if (process.platform === 'darwin') {
+        const iconPath = path.resolve(__dirname, '../assets/icon.png')
+        console.log('Setting dock icon to:', iconPath)
+        console.log('Icon file exists:', require('fs').existsSync(iconPath))
+        app.dock.setIcon(iconPath)
+    }
+    
     createWindow()
 
     app.on('activate', function () {

@@ -34,7 +34,7 @@ export const getConfig = () => ({
     },
     systemInstruction: {
         parts: [{
-            text: localStorage.getItem('systemInstructions') || "You are a helpful assistant"
+            text: localStorage.getItem('systemInstructions') || "You are a learning coach. Be concise and direct. Watch the screen, give specific actionable feedback. Keep responses brief."
         }]
     },
     tools: {

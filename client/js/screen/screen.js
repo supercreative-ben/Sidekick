@@ -53,8 +53,10 @@ export class ScreenManager {
             // Get available screen sources using native desktopCapturer
             const sources = await window.api.getScreenSources();
             
-            // Default to the first screen source if available
-            const source = sources[0];
+            // Prefer screen sources over window sources (entire desktop vs specific window)
+            const screenSources = sources.filter(source => source.name.includes('Screen') || source.name.includes('Display'));
+            const source = screenSources.length > 0 ? screenSources[0] : sources[0];
+            
             if (!source) {
                 throw new Error('No screen sources available');
             }

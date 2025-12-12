@@ -7,7 +7,7 @@ import { GeminiWebsocketClient } from '../ws/client.js';
 
 import { AudioRecorder } from '../audio/recorder.js';
 import { AudioStreamer } from '../audio/streamer.js';
-import { AudioVisualizer } from '../audio/visualizer.js';
+// AudioVisualizer import removed - no longer needed
 
 import { DeepgramTranscriber } from '../transcribe/deepgram.js';
 
@@ -80,6 +80,7 @@ export class GeminiAgent{
         this.name = name;
         this.url = url;
         this.client = null;
+        this._audioStreaming = false;
     }
 
     setupEventListeners() {
@@ -88,6 +89,7 @@ export class GeminiAgent{
             try {
                 if (!this.audioStreamer.isInitialized) {
                     this.audioStreamer.initialize();
+                    this.emitAudioStreamStart();
                 }
                 this.audioStreamer.streamAudio(new Uint8Array(data));
 
@@ -102,19 +104,44 @@ export class GeminiAgent{
 
         // Handle model interruptions by stopping audio playback
         this.client.on('interrupted', () => {
-            this.audioStreamer.stop();
-            this.audioStreamer.isInitialized = false;
+            if (this.audioStreamer) {
+                this.audioStreamer.stop();
+                this.audioStreamer.isInitialized = false;
+            }
+            this.emitAudioStreamStop();
             this.emit('interrupted');
         });
 
         // Add an event handler when the model finishes speaking if needed
         this.client.on('turn_complete', () => {
             console.info('Model finished speaking');
+            if (this.audioStreamer) {
+                this.audioStreamer.isInitialized = false;
+            }
+            this.emitAudioStreamStop();
             this.emit('turn_complete');
         });
 
         this.client.on('tool_call', async (toolCall) => {
             await this.handleToolCall(toolCall);
+        });
+
+        // Handle quota exceeded error
+        this.client.on('quota_exceeded', (reason) => {
+            console.error('🚫 API quota exceeded. Stopping all operations.');
+            this.handleQuotaExceeded(reason);
+        });
+
+        // Handle authentication errors
+        this.client.on('auth_error', (reason) => {
+            console.error('🚫 Authentication error. Please check your API key.');
+            this.handleAuthError(reason);
+        });
+
+        // Handle disconnection
+        this.client.on('disconnected', (data) => {
+            console.warn('Connection closed:', data);
+            this.handleDisconnection(data);
         });
     }
         
@@ -129,10 +156,18 @@ export class GeminiAgent{
      * Connects to the Gemini API using the GeminiWebsocketClient.connect() method.
      */
     async connect() {
+        // If already connected, don't create a new connection
+        if (this.connected && this.client && this.client.ws?.readyState === WebSocket.OPEN) {
+            console.info('Already connected to Gemini');
+            return;
+        }
+        
+        // Create new client and connect
         this.client = new GeminiWebsocketClient(this.name, this.url, this.config);
         await this.client.connect();
         this.setupEventListeners();
         this.connected = true;
+        console.info('Connected to Gemini successfully');
     }
 
     /**
@@ -229,6 +264,8 @@ export class GeminiAgent{
      * Ensures proper cleanup of audio, screen sharing, and WebSocket resources.
      */
     async disconnect() {
+        if (!this.connected) return;
+        
         try {
             // Stop camera capture first
             await this.stopCameraCapture();
@@ -242,11 +279,7 @@ export class GeminiAgent{
                 this.audioRecorder = null;
             }
 
-            // Cleanup audio visualizer before audio context
-            if (this.visualizer) {
-                this.visualizer.cleanup();
-                this.visualizer = null;
-            }
+            // Visualizer cleanup removed - no longer needed
 
             // Clean up audio streamer before closing context
             if (this.audioStreamer) {
@@ -281,14 +314,71 @@ export class GeminiAgent{
             }
 
             // Cleanup WebSocket
-            this.client.disconnect();
-            this.client = null;
+            if (this.client) {
+                this.client.disconnect();
+                this.client = null;
+            }
+            
             this.initialized = false;
             this.connected = false;
             
+            this.emitAudioStreamStop();
+            this.emit('disconnected');
+            
             console.info('Disconnected and cleaned up all resources');
         } catch (error) {
-            throw new Error('Disconnect error:' + error);
+            console.error('Disconnect error:', error);
+            // Set flags even if there was an error
+            this.initialized = false;
+            this.connected = false;
+        }
+    }
+
+    /**
+     * Handle quota exceeded error
+     */
+    handleQuotaExceeded(reason) {
+        // Stop recording
+        if (this.audioRecorder?.stream) {
+            this.audioRecorder.stop();
+        }
+        
+        // Stop screen sharing
+        this.stopScreenShare().catch(e => console.error('Error stopping screen share:', e));
+        
+        // Update UI
+        this.emit('quota_exceeded', reason);
+        
+        // Show user-friendly message
+        alert('⚠️ API Quota Exceeded\n\nYou have exceeded your Gemini API quota. Please check your plan and billing details at:\nhttps://aistudio.google.com/app/apikey');
+    }
+
+    /**
+     * Handle authentication error
+     */
+    handleAuthError(reason) {
+        // Stop recording
+        if (this.audioRecorder?.stream) {
+            this.audioRecorder.stop();
+        }
+        
+        // Update UI
+        this.emit('auth_error', reason);
+        
+        // Show user-friendly message
+        alert('⚠️ Authentication Error\n\nYour API key is invalid or has expired. Please check your API key in Settings.');
+    }
+
+    /**
+     * Handle disconnection
+     */
+    handleDisconnection(data) {
+        // Mark as disconnected
+        this.connected = false;
+        
+        // Only show error if it's an unexpected disconnection (not quota or auth error)
+        if (data?.code && data.code !== 1000 && data.code !== 1011 && data.code !== 1008) {
+            console.error('Unexpected disconnection:', data);
         }
     }
 
@@ -369,14 +459,18 @@ export class GeminiAgent{
      * Streams audio data to the model in real-time, handling interruptions
      */
     async initialize() {
+        // If already initialized, don't initialize again
+        if (this.initialized) {
+            console.info('Agent already initialized');
+            return;
+        }
+        
         try {            
             // Initialize audio components
             this.audioContext = new AudioContext();
             this.audioStreamer = new AudioStreamer(this.audioContext);
             this.audioStreamer.initialize();
-            this.visualizer = new AudioVisualizer(this.audioContext, 'visualizer');
-            this.audioStreamer.gainNode.connect(this.visualizer.analyser);
-            this.visualizer.start();
+            // Visualizer removed - no longer needed
             this.audioRecorder = new AudioRecorder();
             
             // Initialize transcriber if API key is provided
@@ -395,7 +489,7 @@ export class GeminiAgent{
             
             this.initialized = true;
             console.info(`${this.client.name} initialized successfully`);
-            this.client.sendText('.');  // Trigger the model to start speaking first
+            await this.client.sendText('.');  // Trigger the model to start speaking first
         } catch (error) {
             console.error('Initialization error:', error);
             throw new Error('Error during the initialization of the client: ' + error.message);
@@ -446,5 +540,142 @@ export class GeminiAgent{
         for (const callback of this._eventListeners.get(eventName)) {
             callback(data);
         }
+    }
+
+    emitAudioStreamStart() {
+        if (!this._audioStreaming) {
+            this._audioStreaming = true;
+            this.emit('audio_stream_start');
+        }
+    }
+
+    emitAudioStreamStop() {
+        if (this._audioStreaming) {
+            this._audioStreaming = false;
+            this.emit('audio_stream_stop');
+        }
+    }
+
+    /**
+     * Get the user's stored name
+     * @returns {string|null} The user's name or null if not set
+     */
+    getUserName() {
+        return localStorage.getItem('userName');
+    }
+
+    /**
+     * Store the user's name
+     * @param {string} name - The user's name
+     */
+    setUserName(name) {
+        localStorage.setItem('userName', name);
+    }
+
+    /**
+     * Initiate the welcome flow on course selection screen
+     */
+    async startWelcomeFlow() {
+        if (!this.connected) {
+            console.warn('Cannot start welcome flow - not connected');
+            return;
+        }
+
+        const welcomeMessage = `SYSTEM INSTRUCTION: You are starting a new coaching session. Greet the user with this exact script:
+
+"Welcome. I'm your coach Sidekick. What's your name?"
+
+When the user responds with their name, confirm it by saying "Is it [Name]?" and then say: "Excellent. [Name], we're going to learn online like you've never learned before. No boring tutorials, just by practicing. Are you ready? Select a course to get started."
+
+Remember their name and use it throughout all future interactions to make the coaching more personal.`;
+        
+        await this.client.sendText(welcomeMessage, true);
+        console.info('Started welcome flow');
+    }
+
+    /**
+     * Update the challenge context for the learning coach
+     * @param {Object} challenge - The current challenge object
+     * @param {string} courseName - The name of the course
+     */
+    async updateChallengeContext(challenge, courseName) {
+        if (!this.connected) {
+            console.warn('Cannot update challenge context - not connected');
+            return;
+        }
+
+        const userName = this.getUserName();
+        const userContext = userName ? `The student's name is ${userName}. ` : '';
+
+        const contextMessage = `${userContext}${courseName} - Challenge: ${challenge.title}
+${challenge.description}
+
+Instructions: ${challenge.instructions}
+${challenge.hints && challenge.hints.length > 0 ? `Hints: ${challenge.hints.join('; ')}` : ''}
+
+IMPORTANT COACHING GUIDELINES:
+- Be patient. Give the student time and space to work.
+- Only speak when the student speaks to you or when checking progress.
+- Do not fill silence with unnecessary talk.
+- Be brief and encouraging when you do speak.
+- Watch the screen quietly. When complete, say "Done! Next challenge."`;
+
+        // Send the context as a system message
+        await this.client.sendText(contextMessage, true);
+        console.info('Updated challenge context for:', challenge.title);
+    }
+
+    /**
+     * Check if challenge is completed based on screen content
+     * @param {Object} challenge - The current challenge object
+     */
+    async checkChallengeCompletion(challenge) {
+        if (!this.connected) {
+            return false;
+        }
+
+        const completionCheck = `Silent progress check: Look at the student's screen. Have they completed "${challenge.title}"?
+
+Objective: ${challenge.description}
+
+RULES FOR RESPONSE:
+1. If clearly completed: Briefly congratulate and say "Click Next challenge to continue."
+2. If NOT completed but making good progress: Say NOTHING. Stay silent. Let them work.
+3. ONLY if they seem stuck or confused (haven't made progress): Offer ONE brief hint.
+4. Default to silence. The student needs focus time.
+
+Do not ramble or explain. Be extremely brief or say nothing.`;
+
+        // Send the completion check
+        await this.client.sendText(completionCheck, true);
+        return true;
+    }
+
+    /**
+     * Ask Gemini to provide initial instructions for the challenge
+     * @param {Object} challenge - The current challenge object
+     * @param {string} courseName - The name of the course
+     * @param {boolean} isFirstChallenge - Whether this is the first challenge of the course
+     */
+    async provideInitialInstructions(challenge, courseName, isFirstChallenge = false) {
+        if (!this.connected) {
+            return;
+        }
+
+        const userName = this.getUserName();
+
+        const instructionMessage = `New challenge starting: ${challenge.title} in ${courseName}.
+
+Objective: ${challenge.description}
+
+Instructions to give:
+${isFirstChallenge ? '- Start with "Welcome to this challenge!"' : '- Skip welcome, just give instructions'}
+- Provide clear, concise steps (3-5 steps maximum)
+- Be encouraging but brief
+${userName ? `- Use the name ${userName}` : ''}
+- End with: "Take your time. Let me know if you need help."
+- Then STAY SILENT. Give them space to work. Do not interrupt unless they speak to you.`;
+
+        await this.client.sendText(instructionMessage, true);
     }
 }

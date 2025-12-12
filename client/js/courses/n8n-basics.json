@@ -1,0 +1,166 @@
+{
+  "id": "n8n-basics",
+  "title": "N8N Automation Fundamentals",
+  "description": "Master workflow automation with n8n from setup to building powerful workflows",
+  "icon": "⚡",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "Sign Up for N8N Cloud and Create First Workflow",
+      "description": "Create your n8n cloud account and build your first automation workflow",
+      "instructions": "Guide the user to sign up for n8n.cloud (free tier available), access their workspace, and create their first workflow. Explain the canvas, nodes, and connections.",
+      "hints": [
+        "Go to https://n8n.cloud and sign up for free",
+        "Verify your email and log in",
+        "Create your first workflow from the dashboard",
+        "The canvas is where you build workflows",
+        "Nodes are the building blocks of automation"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Understand Triggers and Nodes",
+      "description": "Learn the difference between trigger nodes and action nodes",
+      "instructions": "Teach the user about trigger nodes (start workflows) vs action nodes (perform tasks). Show common triggers like Manual, Schedule, and Webhook.",
+      "hints": [
+        "Trigger nodes start the workflow execution",
+        "Common triggers: Manual, Cron/Schedule, Webhook",
+        "Action nodes perform operations (HTTP, Database, APIs)",
+        "Every workflow needs at least one trigger",
+        "Click '+' button to add nodes"
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "Create a Schedule-Based Workflow",
+      "description": "Build a workflow that runs automatically on a schedule",
+      "instructions": "Guide the user to create a workflow with a Schedule trigger that runs at specific intervals. Add a simple action like sending data to a webhook or logging.",
+      "hints": [
+        "Add a 'Schedule Trigger' node",
+        "Set interval (every hour, daily, custom cron)",
+        "Add an action node (HTTP Request or Set node)",
+        "Test with 'Execute Workflow' button",
+        "Save and activate the workflow"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Work with HTTP Requests",
+      "description": "Master the HTTP Request node for API calls",
+      "instructions": "Show the user how to use the HTTP Request node to fetch data from an API. Use a public API like JSONPlaceholder or a weather API.",
+      "hints": [
+        "Add 'HTTP Request' node",
+        "Set method (GET, POST, etc.)",
+        "Enter URL (try https://jsonplaceholder.typicode.com/users)",
+        "Configure headers if needed",
+        "Execute to see response data"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Transform Data with Set Node",
+      "description": "Learn to manipulate and transform data between nodes",
+      "instructions": "Teach the user to use the Set node to extract, rename, or transform data fields from previous nodes. Show how to access data using expressions.",
+      "hints": [
+        "Add 'Set' node after HTTP Request",
+        "Use 'Add Value' to create new fields",
+        "Access previous node data with {{ $json.fieldName }}",
+        "Transform strings, numbers, dates",
+        "Use expressions for complex transformations"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Implement Conditional Logic with IF Node",
+      "description": "Create workflows with branching logic",
+      "instructions": "Guide the user to add an IF node to create conditional workflows. Show how to route data based on conditions (true/false branches).",
+      "hints": [
+        "Add 'IF' node to your workflow",
+        "Set condition (equals, greater than, contains, etc.)",
+        "Connect 'true' and 'false' output branches",
+        "Add different actions for each branch",
+        "Test both paths with different data"
+      ]
+    },
+    {
+      "id": "challenge-7",
+      "title": "Use Expressions and Functions",
+      "description": "Master n8n's expression language for dynamic data",
+      "instructions": "Teach the user to use expressions for dynamic values, date formatting, string manipulation, and math operations. Show the expression editor.",
+      "hints": [
+        "Click 'fx' to open expression editor",
+        "Use {{ }} to write expressions",
+        "Access node data: {{ $json.fieldName }}",
+        "Common functions: $now, $today, .toUpperCase()",
+        "Test expressions in the editor"
+      ]
+    },
+    {
+      "id": "challenge-8",
+      "title": "Build a Multi-Step Workflow",
+      "description": "Create a complex workflow with multiple connected nodes",
+      "instructions": "Guide the user to build a workflow that: fetches data from an API, filters/transforms it, applies conditional logic, and outputs results to multiple destinations.",
+      "hints": [
+        "Start with Schedule or Webhook trigger",
+        "Add HTTP Request to fetch data",
+        "Use Set node to transform data",
+        "Add IF node for filtering",
+        "Connect multiple output nodes",
+        "Test the entire flow end-to-end"
+      ]
+    },
+    {
+      "id": "challenge-9",
+      "title": "Handle Errors and Debugging",
+      "description": "Learn to troubleshoot and handle workflow errors",
+      "instructions": "Show the user how to debug workflows using node execution data, handle errors gracefully, and set up error workflows.",
+      "hints": [
+        "Click on executed nodes to see input/output",
+        "Use 'Error Trigger' node for error handling",
+        "Check execution logs in sidebar",
+        "Use 'Stop and Error' node for testing",
+        "Enable error workflows in settings"
+      ]
+    },
+    {
+      "id": "challenge-10",
+      "title": "Connect Real Services (Gmail, Slack, etc.)",
+      "description": "Integrate n8n with popular apps and services",
+      "instructions": "Guide the user to connect n8n with real services like Gmail, Slack, Google Sheets, or Notion. Show OAuth setup and credential management.",
+      "hints": [
+        "Add a service node (Gmail, Slack, etc.)",
+        "Click 'Create New Credential'",
+        "Follow OAuth authentication flow",
+        "Test connection with simple operation",
+        "Build a real automation (e.g., email to Slack)"
+      ]
+    },
+    {
+      "id": "challenge-11",
+      "title": "Use Webhooks for External Integration",
+      "description": "Create webhook endpoints to receive data from external sources",
+      "instructions": "Teach the user to set up webhook triggers, receive POST requests, and process incoming data from external applications. N8N Cloud provides publicly accessible webhook URLs automatically.",
+      "hints": [
+        "Add 'Webhook' trigger node",
+        "Choose HTTP method (POST, GET)",
+        "Copy the production webhook URL (publicly accessible)",
+        "Test with curl, Postman, or external services",
+        "Process incoming data with subsequent nodes"
+      ]
+    },
+    {
+      "id": "challenge-12",
+      "title": "Optimize Workflows with Loops and Batching",
+      "description": "Handle large datasets efficiently with loops and batch processing",
+      "instructions": "Show the user how to use loop nodes, split data into batches, and process large amounts of data without overwhelming APIs.",
+      "hints": [
+        "Use 'Split In Batches' node for large datasets",
+        "Set batch size appropriately",
+        "Add 'Wait' node to avoid rate limits",
+        "Use 'Loop Over Items' for iteration",
+        "Monitor execution time and performance"
+      ]
+    }
+  ]
+}
+

@@ -111,7 +111,7 @@ class SettingsManager {
         this.elements.deepgramApiKeyInput.value = localStorage.getItem('deepgramApiKey') || '';
         this.elements.voiceSelect.value = localStorage.getItem('voiceName') || 'Aoede';
         this.elements.sampleRateInput.value = localStorage.getItem('sampleRate') || '27000';
-        this.elements.systemInstructionsInput.value = localStorage.getItem('systemInstructions') || 'You are a helpful assistant';
+        this.elements.systemInstructionsInput.value = localStorage.getItem('systemInstructions') || 'You are a learning coach. Be concise and direct. Watch the screen, give specific actionable feedback. Keep responses brief.';
         this.elements.temperatureInput.value = localStorage.getItem('temperature') || '1.8';
         this.elements.topPInput.value = localStorage.getItem('top_p') || '0.95';
         this.elements.topKInput.value = localStorage.getItem('top_k') || '65';

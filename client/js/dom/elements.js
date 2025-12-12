@@ -1,23 +1,25 @@
 // DOM elements object
 const elements = {
     // Button elements
-    disconnectBtn: document.getElementById('disconnectBtn'),
-    connectBtn: document.getElementById('connectBtn'),
     micBtn: document.getElementById('micBtn'),
-    cameraBtn: document.getElementById('cameraBtn'),
     screenBtn: document.getElementById('screenBtn'),
     settingsBtn: document.getElementById('settingsBtn'),
 
     // Preview elements
-    cameraPreview: document.getElementById('cameraPreview'),
     screenPreview: document.getElementById('screenPreview'),
 
-    // Text input elements
-    messageInput: document.getElementById('messageInput'),
-    sendBtn: document.getElementById('sendBtn'),
+    // Challenge content elements
+    challengeCourse: document.getElementById('challengeCourse'),
+    challengeTitle: document.getElementById('challengeTitle'),
+    challengeSubtitle: document.getElementById('challengeSubtitle'),
+    challengeInstructions: document.getElementById('challengeInstructions'),
 
-    // Visualizer canvas
-    visualizerCanvas: document.getElementById('visualizer')
+    // Footer controls
+    stopGeminiBtn: document.getElementById('stopGeminiBtn'),
+    audiogramWrapper: document.querySelector('.audiogram'),
+    audiogramBars: null, // Will be populated after DOM load
+    playIcon: null, // Will be populated after DOM load
+    statusIndicator: null, // Will be populated after DOM load
 };
 
 export default elements;

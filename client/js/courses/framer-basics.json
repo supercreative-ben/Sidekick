@@ -1,0 +1,93 @@
+{
+  "id": "framer-basics",
+  "title": "Framer Design Essentials",
+  "description": "Learn to create stunning interactive prototypes and websites",
+  "icon": "🎨",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "Welcome to Framer",
+      "description": "Open Framer and create your first project",
+      "instructions": "Guide the user to open Framer and start a new project. Familiarize them with the interface - canvas, toolbar, and properties panel.",
+      "hints": [
+        "Go to framer.com and sign in",
+        "Click 'New Project' or use a template",
+        "Explore the main toolbar at the top",
+        "Notice the canvas in the center and properties on the right"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Add Your First Frame",
+      "description": "Create and customize a frame element",
+      "instructions": "Help the user add a frame to the canvas, resize it, and change its background color. Explain what frames are and how they work.",
+      "hints": [
+        "Press F or click the Frame tool",
+        "Click and drag to create a frame",
+        "Use the properties panel to change background color",
+        "Resize using the handles on the corners"
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "Add Text and Images",
+      "description": "Insert and style text and image elements",
+      "instructions": "Guide the user to add a text element with a heading, style it, then add an image placeholder or upload an image.",
+      "hints": [
+        "Press T for text tool",
+        "Type your heading text",
+        "Use the properties panel to change font, size, and color",
+        "Insert images from the toolbar or drag and drop"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Understanding Auto Layout",
+      "description": "Learn to use Auto Layout for responsive designs",
+      "instructions": "Show the user how to apply Auto Layout to a frame containing multiple elements. Explain spacing, padding, and direction.",
+      "hints": [
+        "Select a frame with multiple children",
+        "Click the Auto Layout button (or Shift+A)",
+        "Adjust spacing between items",
+        "Change direction (horizontal/vertical)"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Create Interactive Components",
+      "description": "Make elements interactive with click actions",
+      "instructions": "Help the user create a button component with hover and click states. Guide them through the component variants.",
+      "hints": [
+        "Create a frame for your button",
+        "Right-click and select 'Create Component'",
+        "Add variants for different states",
+        "Use the Prototype tab to add interactions"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Build a Simple Page",
+      "description": "Combine everything to create a landing page section",
+      "instructions": "Guide the user to build a hero section with heading, description, and a button using Auto Layout and components.",
+      "hints": [
+        "Start with a main frame for the section",
+        "Add Auto Layout for structure",
+        "Use your button component from the previous challenge",
+        "Align elements using the alignment tools"
+      ]
+    },
+    {
+      "id": "challenge-7",
+      "title": "Preview and Share",
+      "description": "Preview your design and learn to share it",
+      "instructions": "Show the user how to preview their design in the browser and share it with others.",
+      "hints": [
+        "Click the Preview button (or press Cmd/Ctrl+P)",
+        "Test interactions in the preview",
+        "Click 'Share' to get a shareable link",
+        "Explore publish options"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,138 @@
+{
+  "id": "chatgpt-mastery",
+  "title": "ChatGPT Advanced Mastery",
+  "description": "Master advanced prompting techniques, GPT creation, and enterprise features",
+  "icon": "🚀",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "Master RACE Prompting Framework",
+      "description": "Learn the RACE methodology: Role, Action, Context, Examples",
+      "instructions": "Teach the user the RACE prompting framework: Role (define ChatGPT's expertise), Action (specific task), Context (background info), Examples (sample outputs). Show how this creates superior prompts.",
+      "hints": [
+        "Role: 'You are a senior software architect with 15 years experience'",
+        "Action: 'Create a microservices architecture for an e-commerce platform'",
+        "Context: 'The platform needs to handle 1M daily users, process payments, manage inventory'",
+        "Examples: 'Include diagrams, technology stack recommendations, and deployment strategy'"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Create Your First Custom GPT",
+      "description": "Build a specialized GPT for your specific use case",
+      "instructions": "Guide the user through creating a custom GPT: define purpose, upload knowledge files, set conversation starters, configure capabilities, and test the GPT.",
+      "hints": [
+        "Go to ChatGPT and click 'Explore GPTs'",
+        "Click 'Create a GPT'",
+        "Define your GPT's purpose and personality",
+        "Upload relevant knowledge files or documents",
+        "Set conversation starters and test thoroughly"
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "Set Up ChatGPT Projects",
+      "description": "Organize complex work using ChatGPT's project management features",
+      "instructions": "Show the user how to create and manage ChatGPT projects for organizing complex tasks, maintaining context across sessions, and collaborating with team members.",
+      "hints": [
+        "Create a new project from the sidebar",
+        "Add project description and goals",
+        "Upload relevant files and documents",
+        "Use project-specific custom instructions",
+        "Invite team members for collaboration"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Disable Model Training for Privacy",
+      "description": "Protect sensitive data by disabling model training",
+      "instructions": "Teach the user how to disable model training to prevent their conversations from being used to train future models, crucial for sensitive business or personal data.",
+      "hints": [
+        "Go to Settings > Data Controls",
+        "Turn off 'Improve the model for everyone'",
+        "Enable 'Chat History & Training' toggle",
+        "Consider ChatGPT Team/Enterprise for additional privacy",
+        "Verify settings are applied correctly"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Integrate External Apps and APIs",
+      "description": "Connect ChatGPT with external tools and services",
+      "instructions": "Show the user how to use ChatGPT's external app integrations, API connections, and third-party tools to extend functionality beyond basic chat.",
+      "hints": [
+        "Explore available integrations in ChatGPT settings",
+        "Connect to productivity tools like Notion, Slack, or Zapier",
+        "Use API keys for custom integrations",
+        "Set up webhooks for automated workflows",
+        "Test integrations with sample data"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Advanced Chain-of-Thought Prompting",
+      "description": "Master complex reasoning and problem-solving prompts",
+      "instructions": "Teach advanced prompting techniques including chain-of-thought reasoning, few-shot learning, and iterative refinement for complex problem-solving.",
+      "hints": [
+        "Use 'Let's think step by step' for complex problems",
+        "Provide examples of good vs bad solutions",
+        "Ask ChatGPT to show its reasoning process",
+        "Use iterative prompts to refine solutions",
+        "Combine multiple prompting techniques"
+      ]
+    },
+    {
+      "id": "challenge-7",
+      "title": "Build Advanced Custom Instructions",
+      "description": "Create sophisticated custom instructions for specialized workflows",
+      "instructions": "Guide the user to create advanced custom instructions that include specific formatting requirements, domain expertise, and workflow preferences.",
+      "hints": [
+        "Define your professional role and expertise level",
+        "Specify output formats (markdown, tables, code blocks)",
+        "Set tone and communication style preferences",
+        "Include domain-specific terminology and context",
+        "Test instructions across different scenarios"
+      ]
+    },
+    {
+      "id": "challenge-8",
+      "title": "Master Function Calling and Tools",
+      "description": "Use ChatGPT's function calling capabilities for complex tasks",
+      "instructions": "Teach the user about ChatGPT's function calling features, how to define custom functions, and integrate with external APIs for automated workflows.",
+      "hints": [
+        "Understand function calling syntax and structure",
+        "Define custom functions for specific tasks",
+        "Use built-in tools like code interpreter and web browsing",
+        "Create automated workflows with function chains",
+        "Debug and optimize function performance"
+      ]
+    },
+    {
+      "id": "challenge-9",
+      "title": "Enterprise Security and Compliance",
+      "description": "Implement security best practices and compliance measures",
+      "instructions": "Guide the user through enterprise-level security features, compliance settings, audit logs, and data governance for business use of ChatGPT.",
+      "hints": [
+        "Enable SSO and enterprise authentication",
+        "Configure data retention and deletion policies",
+        "Set up audit logs and monitoring",
+        "Implement role-based access controls",
+        "Ensure compliance with industry regulations"
+      ]
+    },
+    {
+      "id": "challenge-10",
+      "title": "Advanced Prompt Engineering Patterns",
+      "description": "Master sophisticated prompting patterns and techniques",
+      "instructions": "Teach advanced prompt engineering including meta-prompting, prompt chaining, conditional logic, and optimization techniques for maximum effectiveness.",
+      "hints": [
+        "Use meta-prompts to improve prompt quality",
+        "Chain prompts for complex multi-step processes",
+        "Implement conditional logic in prompts",
+        "Optimize prompts for token efficiency",
+        "Test and iterate on prompt performance"
+      ]
+    }
+  ]
+}
+

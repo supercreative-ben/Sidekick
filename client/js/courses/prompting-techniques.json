@@ -1,0 +1,207 @@
+{
+  "id": "prompting-techniques",
+  "title": "AI Prompting Mastery",
+  "description": "Master the art of prompt engineering with proven techniques for any AI model",
+  "icon": "🎯",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "The Fundamentals of Good Prompts",
+      "description": "Learn the core principles that make prompts effective",
+      "instructions": "Teach the user the five pillars of effective prompting: Clarity (be specific), Completeness (provide context), Conciseness (avoid fluff), Correctness (accurate info), and Courtesy (polite tone). Show examples of bad vs good prompts.",
+      "hints": [
+        "Bad: 'Write something about dogs' → Good: 'Write a 200-word article about Golden Retriever training for first-time owners'",
+        "Be specific about format, length, tone, and audience",
+        "Include relevant context about your use case",
+        "Avoid vague terms like 'something', 'good', 'nice'",
+        "State constraints upfront (word count, style, restrictions)"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Master the CLEAR Framework",
+      "description": "Use CLEAR: Context, Length, Examples, Audience, Role",
+      "instructions": "Teach the CLEAR prompting framework: Context (background info), Length (desired output size), Examples (show what you want), Audience (who it's for), Role (AI's perspective). Practice building prompts with all five elements.",
+      "hints": [
+        "Context: 'I'm building a SaaS product for project management'",
+        "Length: 'Write a 500-word blog post' or 'Create 5 bullet points'",
+        "Examples: 'Similar to how Notion writes their docs'",
+        "Audience: 'For non-technical startup founders'",
+        "Role: 'You are a product marketing expert with 10 years experience'"
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "Role-Based Prompting",
+      "description": "Assign specific roles to get expert-level responses",
+      "instructions": "Show how assigning a role transforms AI responses. Practice using specific roles like 'senior software architect', 'copywriting expert', 'financial advisor'. Compare generic vs role-based outputs.",
+      "hints": [
+        "Generic: 'Explain machine learning' vs Role: 'As a university professor, explain ML to freshmen'",
+        "Use specific expertise: 'You are a senior DevOps engineer with AWS certifications'",
+        "Add experience level: 'with 15 years experience' or 'specializing in startups'",
+        "Include relevant background: 'who has worked at FAANG companies'",
+        "Define perspective: 'from a practical, hands-on approach'"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Few-Shot Prompting",
+      "description": "Provide examples to guide AI output format and style",
+      "instructions": "Teach few-shot learning: give 2-3 examples of desired output before asking for new content. Show how examples dramatically improve consistency and quality.",
+      "hints": [
+        "Provide 2-3 examples of the exact format you want",
+        "Example: 'Input: happy → Output: 😊 | Input: sad → Output: 😢 | Now convert: excited'",
+        "Match style, tone, structure, and length in examples",
+        "Use examples to show edge cases or specific requirements",
+        "More examples = better pattern recognition (but diminishing returns after 3-5)"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Chain-of-Thought Reasoning",
+      "description": "Get step-by-step reasoning for complex problems",
+      "instructions": "Teach chain-of-thought (CoT) prompting: add 'Let's think step by step' or 'Show your reasoning' to get detailed problem-solving. Compare direct answers vs CoT answers for complex tasks.",
+      "hints": [
+        "Add: 'Let's think step by step' before complex questions",
+        "Use: 'Explain your reasoning process'",
+        "Or: 'Break this down into logical steps'",
+        "CoT improves accuracy on math, logic, multi-step problems",
+        "Review reasoning to catch errors in logic"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Context and Constraints",
+      "description": "Provide relevant context and clear boundaries",
+      "instructions": "Show how context improves relevance and constraints prevent unwanted outputs. Practice adding background info, defining what to avoid, and setting boundaries (length, style, topics).",
+      "hints": [
+        "Context: 'I'm creating content for a B2B SaaS targeting CTOs'",
+        "Constraints: 'Do not use jargon, keep under 300 words, avoid technical acronyms'",
+        "Define scope: 'Focus only on React hooks, not class components'",
+        "Set tone: 'Use a professional but conversational tone'",
+        "Specify exclusions: 'Don't mention competitors or pricing'"
+      ]
+    },
+    {
+      "id": "challenge-7",
+      "title": "Output Formatting",
+      "description": "Specify exact format for structured responses",
+      "instructions": "Teach how to request specific formats: JSON, markdown, tables, bullet points, code blocks. Show how formatting instructions make outputs immediately usable.",
+      "hints": [
+        "Request JSON: 'Output as JSON with fields: name, description, category'",
+        "Tables: 'Present the data in a markdown table with columns A, B, C'",
+        "Code: 'Provide code in Python with inline comments'",
+        "Lists: 'Give me 5 bullet points, each starting with an action verb'",
+        "Templates: 'Use this format: [Title] | [Date] | [Description]'"
+      ]
+    },
+    {
+      "id": "challenge-8",
+      "title": "Iterative Refinement",
+      "description": "Improve outputs through follow-up prompts",
+      "instructions": "Teach the art of refinement: start broad, then iterate with specific feedback. Show how to critique and improve AI outputs with targeted follow-ups.",
+      "hints": [
+        "Start: 'Write a product description for wireless earbuds'",
+        "Refine: 'Make it more concise and focus on battery life'",
+        "Polish: 'Add a call-to-action and make the tone more exciting'",
+        "Adjust: 'Remove technical specs and focus on lifestyle benefits'",
+        "Each iteration builds on previous output"
+      ]
+    },
+    {
+      "id": "challenge-9",
+      "title": "Prompt Templates and Reusability",
+      "description": "Create reusable prompt templates for common tasks",
+      "instructions": "Show how to build prompt templates with placeholders for repeated tasks. Create templates for common use cases: emails, code reviews, content creation, analysis.",
+      "hints": [
+        "Template: 'As a [ROLE], create a [OUTPUT_TYPE] about [TOPIC] for [AUDIENCE] in [TONE]'",
+        "Email template: 'Write a [formal/casual] email to [recipient] about [subject] with [key_points]'",
+        "Code review: 'Review this [language] code for [criteria]. Provide feedback in [format]'",
+        "Save successful prompts as templates",
+        "Build a personal prompt library"
+      ]
+    },
+    {
+      "id": "challenge-10",
+      "title": "Advanced Techniques: Prompt Chaining",
+      "description": "Break complex tasks into sequential prompts",
+      "instructions": "Teach prompt chaining: split large tasks into smaller prompts where each output feeds the next. Show examples of research → outline → writing → editing chains.",
+      "hints": [
+        "Step 1: 'Research key points about [topic]'",
+        "Step 2: 'Using the above research, create a detailed outline'",
+        "Step 3: 'Write section 1 based on the outline'",
+        "Step 4: 'Edit for clarity and conciseness'",
+        "Each prompt refines or builds on previous outputs"
+      ]
+    },
+    {
+      "id": "challenge-11",
+      "title": "Meta-Prompting",
+      "description": "Ask AI to help you write better prompts",
+      "instructions": "Teach meta-prompting: use AI to improve your prompts. Ask 'How can I improve this prompt?' or 'Suggest a better way to ask this question'. Show the prompt improvement cycle.",
+      "hints": [
+        "Ask: 'I want to [goal]. How should I prompt you to get the best results?'",
+        "Try: 'Review this prompt and suggest improvements: [your prompt]'",
+        "Use: 'What information would help you give a better answer?'",
+        "Request: 'Rewrite my prompt to be more effective'",
+        "Learn from AI's suggestions to level up your prompting"
+      ]
+    },
+    {
+      "id": "challenge-12",
+      "title": "Domain-Specific Prompting",
+      "description": "Tailor prompts for specific domains: code, writing, analysis",
+      "instructions": "Teach domain-specific best practices. For code: specify language, libraries, style. For writing: define audience, tone, structure. For analysis: state methodology, metrics, format.",
+      "hints": [
+        "Code: 'Write Python code using pandas and numpy, with type hints and docstrings'",
+        "Writing: 'Write a blog post in AP style for technical professionals'",
+        "Analysis: 'Analyze this data using descriptive statistics and create visualizations'",
+        "Design: 'Create a UI component following Material Design principles'",
+        "Each domain has specific requirements and conventions"
+      ]
+    },
+    {
+      "id": "challenge-13",
+      "title": "Handling Ambiguity and Edge Cases",
+      "description": "Write prompts that handle uncertainty gracefully",
+      "instructions": "Show how to write robust prompts that account for ambiguity: 'If X is unclear, assume Y', 'For edge cases, use Z approach'. Teach defensive prompting.",
+      "hints": [
+        "Add: 'If information is missing, state your assumptions'",
+        "Include: 'For ambiguous cases, provide multiple options'",
+        "Specify: 'If uncertain, ask clarifying questions rather than guessing'",
+        "Define: 'Handle edge cases by [specific approach]'",
+        "Anticipate and address potential misunderstandings"
+      ]
+    },
+    {
+      "id": "challenge-14",
+      "title": "Negative Prompting",
+      "description": "Use 'do not' instructions to avoid unwanted outputs",
+      "instructions": "Teach negative prompting: explicitly state what to avoid. Show how 'do not include X' can be as important as 'include Y'. Practice with exclusions and restrictions.",
+      "hints": [
+        "Avoid fluff: 'Do not include filler words or generic statements'",
+        "Stay focused: 'Do not discuss topics outside of [scope]'",
+        "Skip basics: 'Do not explain basic concepts, assume advanced knowledge'",
+        "Format: 'Do not use bullet points, write in paragraph form'",
+        "Combine positive and negative instructions for precision"
+      ]
+    },
+    {
+      "id": "challenge-15",
+      "title": "Evaluation and Testing",
+      "description": "Test and measure prompt effectiveness",
+      "instructions": "Teach how to evaluate prompt quality: test with multiple inputs, compare outputs, measure consistency. Show A/B testing of prompts and iterating based on results.",
+      "hints": [
+        "Test same prompt with different inputs to check consistency",
+        "Compare outputs from different prompt versions",
+        "Create rubrics: accuracy, relevance, format, tone",
+        "A/B test: try two approaches and measure which works better",
+        "Document successful prompts and patterns in a knowledge base"
+      ]
+    }
+  ]
+}
+
+
+
+

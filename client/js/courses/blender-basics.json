@@ -1,0 +1,117 @@
+{
+  "id": "blender-basics",
+  "title": "Blender 3D Fundamentals",
+  "description": "Get started with 3D modeling, animation, and rendering",
+  "icon": "🎬",
+  "challenges": [
+    {
+      "id": "challenge-1",
+      "title": "Launch Blender and Navigate the Interface",
+      "description": "Open Blender and learn the basic interface layout",
+      "instructions": "Guide the user to open Blender and understand the main areas: 3D Viewport, Outliner, Properties, and Timeline. Explain the default cube, camera, and light.",
+      "hints": [
+        "Launch Blender application",
+        "The default scene has a cube, camera, and light",
+        "Middle mouse button rotates the view",
+        "Scroll to zoom in and out"
+      ]
+    },
+    {
+      "id": "challenge-2",
+      "title": "Master Navigation Controls",
+      "description": "Learn to navigate the 3D viewport effectively",
+      "instructions": "Teach the user viewport navigation: rotate (middle mouse), pan (Shift+middle mouse), zoom (scroll), and using the numpad for orthographic views.",
+      "hints": [
+        "Middle mouse drag to rotate view",
+        "Shift + middle mouse to pan",
+        "Scroll wheel to zoom",
+        "Numpad 1, 3, 7 for front, right, top views"
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "title": "Select, Move, Rotate, Scale",
+      "description": "Learn the fundamental transformation tools",
+      "instructions": "Guide the user to select the default cube, then use G (move), R (rotate), and S (scale). Explain how to constrain to axes with X, Y, Z keys.",
+      "hints": [
+        "Left-click to select objects",
+        "G to move (grab), then X/Y/Z to constrain axis",
+        "R to rotate, S to scale",
+        "Type numbers for precise transformations"
+      ]
+    },
+    {
+      "id": "challenge-4",
+      "title": "Enter Edit Mode",
+      "description": "Switch to Edit Mode and manipulate vertices, edges, faces",
+      "instructions": "Show the user how to enter Edit Mode (Tab), select vertices/edges/faces, and make basic edits to the cube's geometry.",
+      "hints": [
+        "Press Tab to toggle Edit Mode",
+        "1, 2, 3 keys switch between vertex, edge, face mode",
+        "Select individual vertices/edges/faces",
+        "Use G, R, S in Edit Mode too"
+      ]
+    },
+    {
+      "id": "challenge-5",
+      "title": "Add and Delete Objects",
+      "description": "Learn to add new primitives and delete objects",
+      "instructions": "Guide the user to add new objects (Shift+A), choose different primitives, and delete objects (X or Delete key).",
+      "hints": [
+        "Shift+A brings up the Add menu",
+        "Choose Mesh > primitives (sphere, cylinder, etc.)",
+        "X or Delete key to delete selected objects",
+        "Confirm deletion in the menu"
+      ]
+    },
+    {
+      "id": "challenge-6",
+      "title": "Use Modifiers",
+      "description": "Apply a Subdivision Surface modifier",
+      "instructions": "Help the user add a Subdivision Surface modifier to make a cube smoother. Explain how modifiers work non-destructively.",
+      "hints": [
+        "Select your object",
+        "Go to Modifiers panel (wrench icon)",
+        "Add Modifier > Subdivision Surface",
+        "Increase levels to see smoother geometry"
+      ]
+    },
+    {
+      "id": "challenge-7",
+      "title": "Basic Materials and Colors",
+      "description": "Change object colors using materials",
+      "instructions": "Guide the user to the Shading workspace or Material Properties, add a material, and change the base color.",
+      "hints": [
+        "Go to Shading workspace at the top",
+        "Or use Material Properties panel",
+        "Click 'New' to add a material",
+        "Change Base Color to your preference"
+      ]
+    },
+    {
+      "id": "challenge-8",
+      "title": "Render Your First Image",
+      "description": "Set up the camera and render a still image",
+      "instructions": "Show the user how to position the camera view (Numpad 0), adjust the camera, and render an image (F12).",
+      "hints": [
+        "Press Numpad 0 to see camera view",
+        "Select camera and use G/R to position it",
+        "Press F12 to render",
+        "Wait for the render to complete"
+      ]
+    },
+    {
+      "id": "challenge-9",
+      "title": "Save Your Project",
+      "description": "Save your Blender file",
+      "instructions": "Guide the user to save their work using File > Save or Ctrl+S. Explain .blend file format.",
+      "hints": [
+        "File > Save (or Ctrl/Cmd+S)",
+        "Choose a location and filename",
+        "Blender files use .blend extension",
+        "Save often to prevent losing work"
+      ]
+    }
+  ]
+}
+
